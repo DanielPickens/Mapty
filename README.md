@@ -88,8 +88,8 @@ docker exec -it <name> /bin/bash
 
 Open app:
 ```sh
-open "http://$(docker-machine ip):8000/"
-# curl -i "$(docker-machine ip):8000/"
+open "http://$(docker-machine ip):8000/3000"
+# curl -i "$(docker-machine ip):8000/3000"
 ```
 
 Stop:
