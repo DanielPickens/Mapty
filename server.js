@@ -29,7 +29,7 @@ app.listen(port, () => {
 
 //setup mongoose
 mongoose.Promise = global.Promise;
-mongoose.connect("mongodb://localhost/chatapp", { useNewUrlParser: true });
+mongoose.connect("mongodb://localhost/Mapty", { useNewUrlParser: true });
 mongoose.connection
   .once("open", function() {
     console.log("connection established");
@@ -59,7 +59,7 @@ io.on("connection", function(socket) {
   };
 
   users++;
-  socket.emit("newclientconnect", { description: "Hey, welcome!" });
+  socket.emit("newclientconnect", { description: "Hello, welcome!" });
 
 
   io.sockets.emit("broadcast", { description: users + " " + "is connected" });
