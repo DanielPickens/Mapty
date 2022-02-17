@@ -64,8 +64,8 @@ io.on("connection", function(socket) {
 
   io.sockets.emit("broadcast", { description: users + " " + "is connected" });
 
-  socket.on("chat", function(data) {
-    io.sockets.emit("chat", data);
+  socket.on("comms", function(data) {
+    io.sockets.emit("comms", data);
   });
 
   
