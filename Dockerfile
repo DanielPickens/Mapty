@@ -1,16 +1,17 @@
-FROM registry.access.redhat.com/ubi8/nodejs-14:latest
+FROM node:6.10.3
 
-# Copy package.json and package-lock.json
-COPY package*.json ./
+# Create app directory
+RUN mkdir -p /usr/src/app
+WORKDIR /usr/src/app
 
- 
-RUN npm install --production
+# Install app dependencies
+COPY package.json /usr/src/app/
+RUN npm install
 
-COPY --from=build /home/app/
+# Bundle app source
+COPY . /usr/src/app
 
-ENV NODE_ENV production
-ENV PORT 3000
-
-EXPOSE 3000
-
-CMD ["npm", "start"]
+EXPOSE 9000
+Expose 3000
+Expose 8080
+CMD [ "npm", "start" ]
