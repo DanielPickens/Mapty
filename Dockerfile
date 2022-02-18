@@ -1,19 +1,16 @@
-FROM node:16
+FROM registry.access.redhat.com/ubi8/nodejs-14:latest
 
-# Create app directory
-WORKDIR /usr/src/app
-
-# Install app dependencies
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-# where available (npm@5+)
+# Copy package.json and package-lock.json
 COPY package*.json ./
 
-RUN npm install
-# If you are building your code for production
-# RUN npm ci --only=production
+ 
+RUN npm install --production
 
-# Bundle app source
-COPY . .
+COPY . /opt/app-root/src
 
-EXPOSE 8080
-CMD [ "node", "server.js" ]
+ENV NODE_ENV production
+ENV PORT 3000
+
+EXPOSE 3000
+
+CMD ["npm", "start"]
