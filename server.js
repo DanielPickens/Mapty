@@ -27,7 +27,7 @@ app.listen(port, () => {
     console.log(`Running on http://localhost:${port}`);
 });
 
-//setup mongoose
+
 mongoose.Promise = global.Promise;
 mongoose.connect("mongodb://localhost/Mapty", { useNewUrlParser: true });
 mongoose.connection
@@ -43,8 +43,8 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(cookieParser());
 app.use(require("../routes/api"));
 
-// app.use("/chat", require("../routes/api"));
-//setup server
+
+
 const server = app.listen(PORT, function() {
   console.log("server running");
 });
