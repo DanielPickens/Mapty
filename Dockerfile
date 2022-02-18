@@ -1,19 +1,15 @@
-# install latest node
-FROM node:latest
+FROM node:12.2
 
-# create and set app directory
-RUN mkdir -p /usr/src/app/
-WORKDIR /usr/src/app/
+ENV HOME=/home/app
 
-# install app dependencies
-# this is done before the following COPY command to take advantage of layer caching
+RUN apt-get update && apt-get install htop
 
-RUN npm install
+COPY package.json package-lock.json $HOME/node_docker/
 
-# copy app source to destination container
-COPY . .
+WORKDIR $HOME/node_docker
 
-# expose container port
-EXPOSE 3000
+RUN npm install --silent --progress=false
 
-CMD npm start
+COPY . $HOME/node_docker
+
+CMD ["npm", "start"]
