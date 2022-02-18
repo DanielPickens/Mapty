@@ -1,15 +1,11 @@
-FROM node:12.2
+FROM node:8
 
-ENV HOME=/home/app
+WORKDIR /usr/src/app
 
-RUN apt-get update && apt-get install htop
+COPY package*.json ./
+RUN npm ci --only=production
 
-COPY package.json package-lock.json $HOME/node_docker/
+COPY . .
 
-WORKDIR $HOME/node_docker
-
-RUN npm install --silent --progress=false
-
-COPY . $HOME/node_docker
-
-CMD ["npm", "start"]
+EXPOSE 8080
+CMD [ "npm", "start" ]
