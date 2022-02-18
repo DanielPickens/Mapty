@@ -76,7 +76,7 @@ Run:
 docker-compose up
 ```
 
-See logs:
+See logs of running container:
 ```sh
 docker logs <name>
 ```
@@ -86,7 +86,7 @@ Enter container terminal:
 docker exec -it <name> /bin/bash
 ```
 
-Open app:
+Open in docker container:
 ```sh
 open "http://$(docker-machine ip):8000/3000"
 # curl -i "$(docker-machine ip):8000/3000"
