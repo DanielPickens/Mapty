@@ -10,6 +10,8 @@ RUN npm install
 
 # Bundle app source
 COPY . /usr/src/app
+COPY stat: package.json
+COPY failed: stat
 
 EXPOSE 9000
 Expose 3000
