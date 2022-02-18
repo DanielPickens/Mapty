@@ -1,19 +1,11 @@
-FROM node:6.10.3
+FROM node:12.18.3
+WORKDIR /
 
-# Create app directory
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
+RUN git clone https://github.com/DanielPickens/Mapty
 
-# Install app dependencies
-COPY package.json /usr/src/app/
+# Change directories into what got checked out.
+WORKDIR /Mapty
+# All of the files are already there, so we only need to
 RUN npm install
-
-# Bundle app source
-COPY . /usr/src/app
-COPY stat: package.json
-COPY failed: stat
-
-EXPOSE 9000
-Expose 3000
-Expose 8080
-CMD [ "npm", "start" ]
+EXPOSE 8080
+CMD ["pm2", "start", "./bin/ww"]
