@@ -1,14 +1,10 @@
-FROM node:12-slim
-
-LABEL maintainer="Daniel Pickens"
-
-
-RUN mkdir -p /usr/src/Mapty
-COPY . /usr/src/Mapty
-RUN cd /usr/src/Mapty && \
-  yarn && \
-  yarn run build:fast && \
-  chmod +x distribution/commands/index.js && \
-  ln -s $(pwd)/distribution/commands/index.js /usr/bin/Mapty
-
-ENTRYPOINT ["Mapty", "ci"]
+RUN apt-get update -yq \
+    && apt-get -yq install curl gnupg && \
+    && curl -sL https://deb.nodesource.com/setup_12.x | bash \
+    && apt-get update -yq \
+    && apt-get install -yq \
+        dh-autoreconf=19 \
+        ruby=1:2.5.* \
+        ruby-dev=1:2.5.* \
+        nodejs \
+    && rm -rf /var/lib/apt/lists/*
