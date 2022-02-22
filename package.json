@@ -1,65 +1,42 @@
 {
-  "name": "Mapty",
-  "version": "0.1.0",
-  "private": true,
-  "engines": {
-    "node": ">=8"
-  },
-  "scripts": {
-    "test": "node bin/grunt test",
-    
-  },
-  "main": "lib/grunt",
-  "bin": {
-    "grunt": "bin/grunt"
-  },
-  "keywords": [
-    "task",
-    "async",
-    "cli",
-    "minify",
-    "uglify",
-    "build",
-    "lodash",
-    "unit",
-    "test",
-    "qunit",
-    "nodeunit",
-    "server",
-    "init",
-    "scaffold",
-    "make",
-    "daniel",
-    "tool"
-  ],
-  "dependencies": {
-    "dateformat": "~3.0.3",
-    "eventemitter2": "~0.4.13",
-    "exit": "~0.1.2",
-    "findup-sync": "~0.3.0",
-    "glob": "~7.1.6",
-    "grunt-cli": "~1.4.2",
-    "grunt-known-options": "~2.0.0",
-    "grunt-legacy-log": "~3.0.0",
-    "grunt-legacy-util": "~2.0.1",
-    "iconv-lite": "~0.4.13",
-    "js-yaml": "~3.14.0",
-    "minimatch": "~3.0.4",
-    "mkdirp": "~1.0.4",
-    "nopt": "~3.0.6",
-    "rimraf": "~3.0.2"
-  },
-  "devDependencies": {
-    "difflet": "~1.0.1",
-    "eslint-config-grunt": "~1.0.1",
-    "grunt-contrib-nodeunit": "~3.0.0",
-    "grunt-contrib-watch": "~1.1.0",
-    "grunt-eslint": "~18.1.0",
-    "temporary": "~0.0.4",
-    "through2": "~4.0.2"
-  },
-  "files": [
-    "lib",
-    "bin"
-  ]
+	"name": "package-json",
+	"version": "7.0.0",
+	"repository": "mapty/package-json",
+	"funding": "https://github.com/sponsors/danielpickens",
+	"author": {
+		"name": "Dnaiel Pickens",
+	
+	},
+	"engines": {
+		"node": ">=12"
+	},
+	"scripts": {
+		
+	},
+
+	"keywords": [
+		"npm",
+		"registry",
+		"package",
+		"pkg",
+		"package.json",
+		"json",
+		"module",
+		"scope",
+		"scoped"
+	],
+	"dependencies": {
+		"got": "^11.8.2",
+		"registry-auth-token": "^4.0.0",
+		"registry-url": "^5.0.0",
+		"semver": "^7.3.5"
+	},
+	"devDependencies": {
+		"@types/node": "^15.12.4",
+		"ava": "^2.4.0",
+		"mock-private-registry": "^1.1.2",
+		"tsd": "^0.17.0",
+		"typescript": "^4.3.5",
+		"xo": "^0.39.0"
+	}
 }
