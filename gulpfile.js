@@ -25,7 +25,7 @@ function server(done) {
 }
 
 function git(done) {
-    return exec('git add . && git commit -m "netlify deploy" && git push');
+    return exec('git add . && git commit -m "vercel deploy" && git push');
     done();
 }
 
