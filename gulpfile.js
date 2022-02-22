@@ -14,8 +14,7 @@ function openBrowser(done) {
     done();
 }
 
-// Gulp plugin to run a webserver (with LiveReload)
-// https://www.npmjs.com/package/gulp-connect
+
 function server(done) {
     return connect.server({
     root: './',
@@ -47,5 +46,4 @@ function vercelOpen(done) {
 
 exports.deploy = series(git, vercel, vercelOpen);
 
-// Default Gulp command
 exports.default = series(openBrowser, server);
